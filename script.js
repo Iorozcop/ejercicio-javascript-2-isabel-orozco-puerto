@@ -29,5 +29,12 @@ function onLoad() {
   //partiendo del ul accedemos a su último hijo li y desde ahí damos clase al span
   padreUl.lastElementChild.firstElementChild.classList.add("element-4");
   console.log(padreUl);
+
+  //partiendo del Ul seleccionamos todos los li y los almacenamos
+  let listali=padreUl.querySelectorAll('li');
   
+  //accedemos al segundo li, accedemos a su padre y desde ahí lo eliminamos
+  listali[1].parentElement.removeChild(listali[1]);
+  //accedemos al cuarto li, accedemos a su padre y desde ahí lo eliminamos
+  listali[3].parentElement.removeChild(listali[3]);
 }
