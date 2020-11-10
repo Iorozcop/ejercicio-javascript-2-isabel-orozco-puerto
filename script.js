@@ -10,15 +10,24 @@
 
 window.addEventListener("load", onLoad);
 
- 
-
 function onLoad() {
-  //const documento = document.documentElement;
-  //let lista1= document.getElementById("list1");
-  let span = document.getElementsByTagName("span");
+  //seleccionamos el span por el que debemos comenzar
+  let spanBase = document.querySelector(".selected");
+  //accedemos al ul padre
+  let padreUl = spanBase.parentElement.parentElement;
+  //sacamos el primer li
+  let li1 = padreUl.firstElementChild;
+  //sacamos el span del primer li
+  let span1 = li1.firstElementChild;
+  //añadimos la clase al span del primer li
+  span1.classList.add("element-1");
 
-  console.log("hi");
-  console.log(span);
- 
-
+  //añadimos la clase al span del li2 partiendo del li1
+  li1.nextElementSibling.firstElementChild.classList.add("element-2");
+  //añadimos la clase al span4 partiendo del spanBase (span3)
+  spanBase.parentElement.nextElementSibling.firstElementChild.classList.add("element-3");
+  //partiendo del ul accedemos a su último hijo li y desde ahí damos clase al span
+  padreUl.lastElementChild.firstElementChild.classList.add("element-4");
+  console.log(padreUl);
+  
 }
