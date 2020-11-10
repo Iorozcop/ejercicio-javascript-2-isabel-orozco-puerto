@@ -58,4 +58,7 @@ function onLoad() {
     //añadimos el li como hijo al segundo ul
     ul2.appendChild(nuevoLi);
   }
+
+  //añadimos atributo disabled al último botón
+  ul2.lastElementChild.firstElementChild.setAttribute("disabled", "");
 }
