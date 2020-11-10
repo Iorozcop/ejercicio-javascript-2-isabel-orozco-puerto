@@ -25,16 +25,37 @@ function onLoad() {
   //añadimos la clase al span del li2 partiendo del li1
   li1.nextElementSibling.firstElementChild.classList.add("element-2");
   //añadimos la clase al span4 partiendo del spanBase (span3)
-  spanBase.parentElement.nextElementSibling.firstElementChild.classList.add("element-3");
+  spanBase.parentElement.nextElementSibling.firstElementChild.classList.add(
+    "element-3"
+  );
   //partiendo del ul accedemos a su último hijo li y desde ahí damos clase al span
   padreUl.lastElementChild.firstElementChild.classList.add("element-4");
-  console.log(padreUl);
 
   //partiendo del Ul seleccionamos todos los li y los almacenamos
-  let listali=padreUl.querySelectorAll('li');
-  
+  let listali = padreUl.querySelectorAll("li");
+
   //accedemos al segundo li, accedemos a su padre y desde ahí lo eliminamos
   listali[1].parentElement.removeChild(listali[1]);
   //accedemos al cuarto li, accedemos a su padre y desde ahí lo eliminamos
   listali[3].parentElement.removeChild(listali[3]);
+
+  //volvemos a coger la lista para que recoja los cambios
+  listali = padreUl.querySelectorAll("li");
+
+  //accedemos al segundo Ul
+  let ul2 = document.getElementById("list2");
+
+  //recorremos la lista de li 
+  for (let i = 0; i < listali.length; i++) {
+    //creamos botón
+    let boton = document.createElement("button");
+    //añadimos el texto del span de la primera lista al botón
+    boton.textContent =  listali[i].firstElementChild.innerHTML;
+    //creamos nuevo elemento li
+    let nuevoLi = document.createElement("li");
+    //añadimos al nuevo li el boton
+    nuevoLi.appendChild(boton);
+    //añadimos el li como hijo al segundo ul
+    ul2.appendChild(nuevoLi);
+  }
 }
